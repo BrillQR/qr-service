@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QRDataRepository extends JpaRepository<QRData,String> {
     QRData findByUserCode(String userCode);
+    
+    QRData findByqrId(String qrId);
 }

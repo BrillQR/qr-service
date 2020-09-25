@@ -7,6 +7,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,21 +31,48 @@ public class QRData {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
     
+	@Column(name="qr_id")
+	private String qrId;
+	
     @Column(name= "user_code")
     private String userCode;
 
-    @NotNull
-    @Column(name="full_name")
-    private String fullName;
+    @Column(name="first_name")
+    private String firstName;
 
-    @Column(name="country_code")
-    private String countryCode;
+    @Column(name="last_name")
+    private String lastName;
+    
+    @Column(name="surname")
+    private String surname;
 
-    @NotNull
     @Column(name="contact")
     private long contact;
 
-    @Column(name="email_id")
-    @NotNull
-    private String emailId;
+    @Column(name="address")
+    private String address;
+    
+    @Column(name="profession")
+    private String profession;
+    
+    @Column(name="experience")
+    private String experience;
+    
+    @Column(name="education")
+    private String education;
+    
+    @Column(name="profile_photo")
+    private String profilePhoto;
+  
+    @Column(name="website")
+    private String website;
+    
+    @Column(name="field_projects")
+    private String fieldProjects;
+    
+    @Column(name="business_established_date")
+    private LocalDateTime businessEstDate;
+    
+    @Column(name="email")
+    private String email;
 }

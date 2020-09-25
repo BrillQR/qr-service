@@ -31,3 +31,9 @@ CREATE TABLE public.qr_data
     business_established_date date,
     PRIMARY KEY (qr_id)
 );
+
+ALTER TABLE public.qr_data
+    ADD COLUMN id bigint NOT NULL;
+    
+  ALTER TABLE public.qr_data
+    ADD COLUMN user_code character varying(15) NOT NULL;
