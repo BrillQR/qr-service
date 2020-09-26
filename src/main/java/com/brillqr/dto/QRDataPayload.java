@@ -1,5 +1,6 @@
 package com.brillqr.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -31,7 +32,7 @@ public class QRDataPayload {
 	private String profilePhoto;
 	private String website;
 	private String fieldProjects;
-	private Date businessEstDate;
+	private LocalDate businessEstDate;
 	private String email;
 	//address part
 	private String streetAddress;

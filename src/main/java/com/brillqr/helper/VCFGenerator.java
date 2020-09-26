@@ -72,29 +72,25 @@ public class VCFGenerator {
 		vcard.addPhoto(photo);
 		
 		Note note;
+		String additionalNote="";
 		if(StringUtils.isNotBlank(String.valueOf(qrDataPayload.getBusinessEstDate()))) {
-			note = new Note(QR_CONSTANT.BUSINESS_ETS_DATE +qrDataPayload.getBusinessEstDate());
-			note.setLanguage("en");
-			vcard.addNote(note);
+			additionalNote+=QR_CONSTANT.BUSINESS_ETS_DATE +qrDataPayload.getBusinessEstDate()+"\n";
 		}
 		if(StringUtils.isNotBlank(qrDataPayload.getFieldProjects())) {
-			note = new Note(QR_CONSTANT.FIELD_PROJECTS +qrDataPayload.getFieldProjects());
-			note.setLanguage("en");
-			vcard.addNote(note);
+			additionalNote+=QR_CONSTANT.FIELD_PROJECTS +qrDataPayload.getFieldProjects()+"\n";
 		}
 		if(StringUtils.isNotBlank(qrDataPayload.getEducation())) {
-			note = new Note(QR_CONSTANT.EDUCATION +qrDataPayload.getEducation());
-			note.setLanguage("en");
-			vcard.addNote(note);
+			additionalNote+=QR_CONSTANT.EDUCATION +qrDataPayload.getEducation()+"\n";
 		}
 		if(StringUtils.isNotBlank(qrDataPayload.getExperience())) {
-			note = new Note(QR_CONSTANT.EXPERIENCE +qrDataPayload.getExperience());
+			additionalNote+=QR_CONSTANT.EXPERIENCE +qrDataPayload.getExperience();
+			note = new Note(additionalNote);
 			note.setLanguage("en");
 			vcard.addNote(note);
 		}
 		
 		try {
-		File file = new File("F:\\VCFs\\"+qrDataPayload.getEmail()+".vcf");
+		File file = new File("F:\\VCFs\\"+qrDataPayload.getQrId()+".vcf");
 		Ezvcard.write(vcard).go(file);
 		}
 		catch(IOException io) {

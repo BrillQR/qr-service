@@ -34,7 +34,7 @@ public class QRServiceImpl implements QRService{
 				qrData.setContact(qrDataPayload.getContact());
 				qrData.setEmail(qrDataPayload.getEmail());
 				qrData.setUserCode(qrDataPayload.getUserCode());
-				qrData.setBusinessEstDate(LocalDateTime.now());
+				qrData.setBusinessEstDate(qrDataPayload.getBusinessEstDate());
 				qrData.setEducation(qrDataPayload.getEducation());
 				qrData.setExperience(qrDataPayload.getExperience());
 				qrData.setFieldProjects(qrDataPayload.getFieldProjects());

@@ -71,7 +71,7 @@ public class QRData {
     private String fieldProjects;
     
     @Column(name="business_established_date")
-    private LocalDateTime businessEstDate;
+    private LocalDate businessEstDate;
     
     @Column(name="email")
     private String email;
