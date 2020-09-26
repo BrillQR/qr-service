@@ -102,7 +102,7 @@ public class VCFGenerator {
 
 	private String getAddressLabel() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(qrDataPayload.getStreetAddress()).append(" ").append(qrDataPayload.getLocality()).append(" ")
+		sb.append(qrDataPayload.getStreetAddress()).append(", ").append(qrDataPayload.getLocality()).append(", ")
 				.append(qrDataPayload.getCountry());
 		return sb.toString();
 	}
