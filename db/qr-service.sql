@@ -37,3 +37,24 @@ ALTER TABLE public.qr_data
     
   ALTER TABLE public.qr_data
     ADD COLUMN user_code character varying(15) NOT NULL;
+    
+ ALTER TABLE public.qr_data
+    ADD COLUMN street_address character varying(30);
+
+ALTER TABLE public.qr_data
+    ADD COLUMN locality character varying(30);
+
+ALTER TABLE public.qr_data
+    ADD COLUMN region character varying(15);
+
+ALTER TABLE public.qr_data
+    ADD COLUMN postal_code bigint;
+
+ALTER TABLE public.qr_data
+    ADD COLUMN country character(30);
+
+ALTER TABLE public.qr_data
+    ADD COLUMN "isWorkAddress" boolean;  
+    
+   ALTER TABLE public.qr_data
+    ADD COLUMN prefix character varying(7);

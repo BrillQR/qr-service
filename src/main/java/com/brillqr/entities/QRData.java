@@ -36,6 +36,9 @@ public class QRData {
 	
     @Column(name= "user_code")
     private String userCode;
+    
+    @Column(name = "prefix")
+	private String prefix;
 
     @Column(name="first_name")
     private String firstName;
@@ -48,9 +51,6 @@ public class QRData {
 
     @Column(name="contact")
     private long contact;
-
-    @Column(name="address")
-    private String address;
     
     @Column(name="profession")
     private String profession;
@@ -75,4 +75,25 @@ public class QRData {
     
     @Column(name="email")
     private String email;
+    
+    @Column(name="street_address")
+	private String streetAddress;
+    
+    @Column(name="locality")
+	private String locality;
+    
+    @Column(name="region")
+	private String region;
+    
+    @Column(name="postal_code")
+	private Long postalCode;
+    
+    @Column(name="country")
+	private String country;
+    
+    @Column(name="is_work_address")
+	private boolean isWorkAddress;
+    
+    @Column(name="organization")
+    private String organization;
 }
