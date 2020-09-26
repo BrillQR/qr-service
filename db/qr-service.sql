@@ -20,7 +20,6 @@ CREATE TABLE public.qr_data
     last_name character(15),
     surname character(15),
     contact bigint,
-    address character varying(100),
     profession character varying(20),
     experience character varying(10),
     education character varying(20),
@@ -54,7 +53,10 @@ ALTER TABLE public.qr_data
     ADD COLUMN country character(30);
 
 ALTER TABLE public.qr_data
-    ADD COLUMN "isWorkAddress" boolean;  
+    ADD COLUMN isWorkAddress boolean;  
     
-   ALTER TABLE public.qr_data
+ALTER TABLE public.qr_data
     ADD COLUMN prefix character varying(7);
+   
+ALTER TABLE public.qr_data
+    ADD COLUMN organization character varying(30);    
