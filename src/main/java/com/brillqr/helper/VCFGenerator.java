@@ -52,7 +52,10 @@ public class VCFGenerator {
 		adr.setStreetAddress(qrDataPayload.getStreetAddress());
 		adr.setLocality(qrDataPayload.getLocality());
 		adr.setRegion(qrDataPayload.getRegion());
-		adr.setPostalCode(String.valueOf(qrDataPayload.getPostalCode()));
+		
+		if(qrDataPayload.getPostalCode()!=-1)
+			adr.setPostalCode(String.valueOf(qrDataPayload.getPostalCode()));
+		
 		adr.setCountry(qrDataPayload.getCountry());
 		adr.setLabel(getAddressLabel());
 
@@ -63,9 +66,15 @@ public class VCFGenerator {
 			adr.getTypes().add(AddressType.HOME);
 
 		vcard.addAddress(adr);
-		vcard.addEmail(qrDataPayload.getEmail(), EmailType.WORK);
-
-		vcard.addTelephoneNumber(String.valueOf(qrDataPayload.getContact()), TelephoneType.WORK);
+		
+		if(StringUtils.isNotBlank(qrDataPayload.getEmail()))
+			vcard.addEmail(qrDataPayload.getEmail(), EmailType.WORK);
+		
+		
+		if(qrDataPayload.getContact()!=-1)
+			vcard.addTelephoneNumber(String.valueOf(qrDataPayload.getContact()), TelephoneType.WORK);
+		
+		
 		vcard.addUrl(qrDataPayload.getWebsite());
 
 		Photo photo = new Photo(qrDataPayload.getProfilePhoto(), ImageType.PNG);
