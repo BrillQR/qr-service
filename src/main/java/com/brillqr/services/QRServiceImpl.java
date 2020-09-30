@@ -68,5 +68,10 @@ public class QRServiceImpl implements QRService{
 		}
 	}
 	
-	 
+	@Override
+	public QRData getQRData(String userCode) {
+		Response response = ResponseHelper.getResponseTemplate();
+		QRData qrData = qrDataRepository.findByUserCode(userCode);
+		return qrData;
+	}
 }
