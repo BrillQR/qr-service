@@ -16,7 +16,9 @@ import ezvcard.property.Photo;
 import ezvcard.property.StructuredName;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -76,9 +78,15 @@ public class VCFGenerator {
 		
 		
 		vcard.addUrl(qrDataPayload.getWebsite());
-
-		Photo photo = new Photo(qrDataPayload.getProfilePhoto(), ImageType.PNG);
+		
+		try {
+		File photoPath = new File("G:\\PiCs FaMilY N FrNdS\\HamptaPass\\Hinal\\IMG_20190607_093101.jpg");
+	    InputStream targetStream = new FileInputStream(photoPath);
+		Photo photo = new Photo(targetStream, ImageType.JPEG);
 		vcard.addPhoto(photo);
+		}catch(IOException io) {
+			io.printStackTrace();
+		}
 		
 		Note note;
 		String additionalNote="";
