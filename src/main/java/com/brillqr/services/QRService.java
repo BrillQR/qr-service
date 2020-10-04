@@ -7,4 +7,5 @@ public interface QRService {
 	
 	Response saveOR(QRDataPayload qrDataPayload);
 
+	Response getQRDataFromQRId(String qrId);
 }

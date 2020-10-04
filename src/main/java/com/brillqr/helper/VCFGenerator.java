@@ -2,6 +2,7 @@ package com.brillqr.helper;
 
 import com.brillqr.constant.QR_CONSTANT;
 import com.brillqr.dto.QRDataPayload;
+import com.brillqr.exceptions.VCFException;
 
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
@@ -80,7 +81,7 @@ public class VCFGenerator {
 		vcard.addUrl(qrDataPayload.getWebsite());
 		
 		try {
-		File photoPath = new File("G:\\PiCs FaMilY N FrNdS\\HamptaPass\\Hinal\\IMG_20190607_093101.jpg");
+		File photoPath = new File("C:\\Users\\Raj\\Downloads\\frame.png");
 	    InputStream targetStream = new FileInputStream(photoPath);
 		Photo photo = new Photo(targetStream, ImageType.JPEG);
 		vcard.addPhoto(photo);
@@ -107,12 +108,11 @@ public class VCFGenerator {
 		}
 		
 		try {
-		File file = new File("F:\\VCFs\\"+qrDataPayload.getQrId()+".vcf");
+		File file = new File(QR_CONSTANT.LOCAL_STORAGE_PATH_VCF+qrDataPayload.getQrId()+QR_CONSTANT.VCF_EXTENSION);
 		Ezvcard.write(vcard).go(file);
 		}
 		catch(IOException io) {
-			io.printStackTrace();
-			return "Error While Writing File : IOException";
+			throw new VCFException("Error While : getVCFData()");
 		}
 		return Ezvcard.write(vcard).version(VCardVersion.V3_0).go();
 	}
