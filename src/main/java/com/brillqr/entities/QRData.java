@@ -86,7 +86,7 @@ public class QRData {
     @Column(name="country")
 	private String country;
     
-    @Column(name="is_work_address")
+    @Column(name="isworkaddress")
 	private boolean isWorkAddress;
     
     @Column(name="organization")

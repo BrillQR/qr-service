@@ -26,17 +26,17 @@ public class QRController {
     QRService qrService;
 
 
-    @PostMapping(value ="/saveQRData",produces = { "application/json; charset=UTF-8" }, consumes = {
-	"application/json; charset=UTF-8" })
+    @PostMapping(value ="/saveQRData",produces = { "application/json" }, consumes = {
+	"application/json" })
     @CrossOrigin
     @ResponseBody
     public ResponseEntity  saveQRData(@RequestBody QRDataPayload qrDataPayload){
+    	System.out.println("Hi");
     		Response response = qrService.saveOR(qrDataPayload);
     		return new ResponseEntity(response,HttpStatus.OK);
     }
     
-    @GetMapping(value ="/getQRData{code}",produces = { "application/json; charset=UTF-8" }, consumes = {
-	"application/json; charset=UTF-8" })
+    @GetMapping(path ="/getQRData/{userCode}")
     @CrossOrigin
     @ResponseBody
     public ResponseEntity<QRData> getQRData(@PathVariable String userCode){ 
