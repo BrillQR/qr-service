@@ -24,7 +24,7 @@ public class AWSS3Storage {
 
 	public void saveVCFtoS3(){
 		try {
-		BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials("AKIAIUT5ZIT4K7TYSOSQ","x0fx1VRJ19iNYFZ58Ss4Vt6p9OvjP7dgUb9LMduU");
+		BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials("","");
 		AmazonS3 awsClient = AmazonS3ClientBuilder.standard().withRegion(Regions.AP_SOUTH_1).withCredentials(new AWSStaticCredentialsProvider(basicAWSCredentials)).build();
 		String filePath = QR_CONSTANT.LOCAL_STORAGE_PATH_VCF+qrId+QR_CONSTANT.VCF_EXTENSION;
 		PutObjectRequest request = new PutObjectRequest(QR_CONSTANT.S3_BUCKET_NAME,qrId+QR_CONSTANT.VCF_EXTENSION,new File(filePath));
