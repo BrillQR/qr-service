@@ -19,7 +19,7 @@ public class DownloadServiceImpl implements DownloadService{
 	public ResponseEntity<Object> downloadVCF(String qrID) {
 		
 		 try {
-		    	File inputStream = new File(QR_CONSTANT.LOCAL_STORAGE_PATH_VCF+qrID);
+		    	File inputStream = new File(QR_CONSTANT.LOCAL_STORAGE_PATH_VCF+qrID+QR_CONSTANT.VCF_EXTENSION);
 		    	InputStreamResource isr = new InputStreamResource(new FileInputStream(inputStream));
 		    	HttpHeaders headers = new HttpHeaders();
 				headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", inputStream.getName()));
